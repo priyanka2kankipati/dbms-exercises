@@ -1,0 +1,87 @@
+a)
+   create table customer(custid number primary key,
+   fname char(30),
+   lname char(30),
+   address char(50),
+   phone number not null,
+   city char(20),
+   country char(20),
+   datefirstpurchased date,
+   suppplierid number(2),
+   foreign key(supplierid) references supplier(supplierid));
+  
+ insert into CUSTOMER values( 1001,'Das','Jeyaselan','119,park avenue, street',984109328,  'Coimbatore','India', '10-Jan-04',1);
+ insert into CUSTOMER values(2001,'Gopi','Govindraj', '241, floor 1 kamraj street', 9444124590, 'Chennai', 'India', '25-mar-05',5);
+ insert into CUSTOMER values(1201,'dilip','kishore', '3 2 avenue anna nagar',  9997234534, 'bangalore','India', '20-aug-04',2);
+ insert into CUSTOMER values(1300,'anand','chowdhury', '42/1 sector 1,2 street', 98105438, 'bangalore','India', '15-may-05', 2);
+
+supplier table:
+create table SUPPLIER(
+
+  2  supplierid number(10),
+
+  3  sname varchar(20),
+
+  4  scity varchar(20),
+
+  5  sphone number(10),
+
+  6  email varchar(50));
+
+ insert into SUPPLIER values( 1,'dilip','chennai', 8999900000, 'dilip@abc.co.in');
+ insert into SUPPLIER values( 2,'tarun','madurai',8999911111,'tarun@xyz.com');
+ insert into SUPPLIER values(3,'naresh','coimbatore', 8999922222, 'g.naresh@xyzl.com');
+ insert into SUPPLIER values(4,'ganesan','trichy', 8999933333,'ganesan_83@ijk.com');
+
+orders table:
+ CREATE TABLE ORDERS(
+ orderid number(10)primary key,
+
+  3  orderdate date,
+
+  4  custid number(10),
+
+  5  quantity number(10) check(quantity>0),
+
+  6  itemid number(10));
+
+insert into ORDERS values(1,'12-JAN-04',1001,30,25);
+insert into ORDERS values('06-MAY-05',1202,38,24);
+insert into ORDERS values(3,'16-DEC-06',1220,10,22);
+insert into ORDERS values('21-MAY-0',1233,12,21);
+  
+items table:
+ CREATE TABLE ITEMS(
+
+  2  itemid number(10) primary key,
+
+  3  itemname varchar(40) not null,
+
+  4  supplierid number(10),
+
+  5  minqty number(10) not null,
+
+  6  maxqty number(10) not null,
+
+  7  price number(5,2));
+
+insert into ITEMS values(20,'pears',4,7,20,30);
+insert into ITEMS values(22,'pondspowder',3,6,25,106);
+insert into ITEMS values(23,'reynolds blue',1,10,30,15);
+insert into ITEMS values(22,'reynolds black',1,10,30,16);
+insert into ITEMS values(25,'mysore soap',4,7,25,25);
+insert into ITEMS values(26,'fair and lovely',3,5,15,55);
+insert into ITEMS values(27,'rexona',2,5,20,100);
+insert into ITEMS values(28,'dove',4,7,15,85);
+   
+b)
+1.select * from customer where city='chennai';
+2.select * from customer where supplierid=2;
+3.select CUSTID, FNAME, LNAME from customer where datefirstpurchased>'31-jan-2005';
+4.select * from supplier where scity='coimbatore';
+5.select * from supplier where sname like 'G%';                         
+6.select * from customers fname not like '%e%;
+7.select * from customers where datefirstpurchased>'31-dec-2005' and datefirstpurchased<'01-jan-2007';
+8.select * from orders where quantity<35;
+9.select * from items where supplierid=4;
+10.select * from items where supplierid=3 and minqty>7 order by itemid;
