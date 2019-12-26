@@ -1,4 +1,5 @@
-programmer table creation:
+assigmemt-8
+a)
 create table programmer(empno number(5) unique,
  lastname varchar(30) not null,
  firstname varchar(30) not null,
@@ -8,7 +9,41 @@ language varchar(15) not null,
  taskno number(2) not null,
 privilage varchar(25) not null);
 
-books table creation:
+b)
+insert into programmer values((390, 'Ghosh','Pinky','05-Jan-93','KCW','Java',11,'Top Secret');
+insert into PROGRAMMER values(134,'Chaudhury','Supriyo','15-Jul-95','TIPPS','C++',52,'Secret');
+insert into PROGRAMMER values(896,'Jha','Ranjit','15-Jun-97','KCW','Java',10,'Top Secret');
+
+c)
+create table WEATHER(City varchar(20),
+
+  2  State varchar(30) null,
+
+  3  High number(5),
+
+  4  Low number(5));
+  
+  insert into WEATHER values(
+
+  2  'Calcutta','West Bengal',
+
+  3  105,90);
+  
+  insert into WEATHER values(
+
+  2  'Trivandrum','Kerala',
+
+  3  101,92);
+
+  
+   insert into WEATHER values(
+
+  2  'Mumbai','Maharashtra',
+
+  3  88,69);
+
+
+d)
 create table books(bookid number(4) primary key,
 title varchar(10) not null,
 topicid varchar(10) not null,
@@ -18,14 +53,50 @@ price number(4) not null,
 purchasedate date not null,
 shefno varchar(3) not null);
 
-supplier table creation:
-create table customer(custid number primary key,
-   fname char(30),
-   lname char(30),
-   address char(50),
-  phone number not null,
-    city char(20),
-   country char(20),
-    datefirstpurchased date,
-suppplierid number(2),
-   foreign key(supplierid) references supplier(supplierid));
+ insert into BOOKS values(8293,
+
+  2  'DBMS','DB1',
+
+  3  'Prentice Hall',
+
+  4  'Mumbai',
+
+  5  255,'01-Jan-95','S11');
+
+ insert into BOOKS values(5645,
+
+  2  'DBMS','DB1',
+
+  3  'Pearson Education',
+
+  4  'Mumbai',
+
+  5  655,'05-Jan-93','S12');
+
+ insert into BOOKS values(
+
+  2  6565,'C','C1',
+
+  3  'TMH',
+
+  4  'Mumbai',
+
+  5  840,'31-Aug-98','S66');
+  
+  insert into BOOKS values(
+
+  2  4576,'JAVA','JAVA1',
+
+  3  'Guru Govind Pub',
+
+  4  'Delhi',
+
+  5  500,'15-jun-97','S87');
+
+e)
+1)UPDATE PROGRAMMER SET ProjId='NITTS' WHERE EmpNo=201;
+2)UPDATE BOOKS SET ShelfNo='S10' WHERE Title='DBMS';
+3)DELETE FROM PROGRAMMER WHERE EmpNo=134;
+4)delete from weather;alter table weather add(nature_of_weather varchar not null);
+5)delete from programmer;alter table programmer column taskno;
+6)drop table weather;
